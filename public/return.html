@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f6efe4">
+  <title>Payment status — AURA</title>
+  <meta name="description" content="Check the status of your AURA payment.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/return.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="AURA home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-word">AURA</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#the-mug">The mug</a>
+        <a href="/#craft">Craft</a>
+        <a href="/orders" aria-current="page">Orders</a>
+      </nav>
+      <button class="cart-button" type="button" data-cart-open aria-label="Open bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 8h12l-1 12H7L6 8Z"/>
+          <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+        </svg>
+        <span>Bag</span>
+        <span class="cart-count" data-cart-count aria-hidden="true">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="status-page">
+    <div class="shell">
+      <div class="status-card" data-status-card>
+        <div class="status-icon is-pending" data-status-icon>
+          <div class="spinner" data-spinner></div>
+        </div>
+        <p class="eyebrow" data-status-eyebrow><span class="eyebrow-dot" aria-hidden="true"></span>Payment status</p>
+        <h1 data-status-title aria-live="polite">Confirming your payment…</h1>
+        <p class="lede" data-status-message>This usually takes a few seconds. Please keep this page open.</p>
+        <div data-status-body></div>
+        <div class="status-actions" data-status-actions></div>
+        <p class="status-help" data-status-help>Changed your mind? <a href="/">Return to the store</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div>
+          <a class="brand brand-footer" href="/" aria-label="AURA home">
+            <span class="brand-mark" aria-hidden="true">A</span>
+            <span class="brand-word">AURA</span>
+          </a>
+          <p>Small-batch stoneware for slow mornings. A demo storefront built around a hosted UPI-PG checkout.</p>
+        </div>
+        <div>
+          <h2>Shop</h2>
+          <ul>
+            <li><a href="/#the-mug">The Aura Mug</a></li>
+            <li><a href="/checkout">Your bag</a></li>
+            <li><a href="/orders">Order history</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>About this demo</h2>
+          <ul>
+            <li><a href="https://github.com/devstroop/UPI-PG" target="_blank" rel="noopener noreferrer">UPI-PG on GitHub</a></li>
+            <li><a href="/api/health">Store health</a></li>
+            <li><a href="/return">Payment return page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> AURA — a demo project.</p>
+        <p>No real payments are processed. Payments are simulated by UPI-PG.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "aura-upi-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AURA — a single-product demo store with a hosted UPI-PG checkout.",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "node scripts/dev-all.mjs",
+    "start": "node server.js",
+    "test": "node --test \"test/*.test.js\"",
+    "test:e2e": "node scripts/e2e.mjs",
+    "patch:gateway": "node scripts/patch-gateway-otp.mjs",
+    "configure:gateway": "node scripts/configure-gateway.mjs"
+  }
+}

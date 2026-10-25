@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f6efe4">
+  <title>Checkout — AURA</title>
+  <meta name="description" content="Complete your AURA order and pay by UPI on the hosted UPI-PG checkout.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/checkout.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="AURA home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-word">AURA</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#the-mug">The mug</a>
+        <a href="/#craft">Craft</a>
+        <a href="/orders">Orders</a>
+      </nav>
+      <button class="cart-button" type="button" data-cart-open aria-label="Open bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 8h12l-1 12H7L6 8Z"/>
+          <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+        </svg>
+        <span>Bag</span>
+        <span class="cart-count" data-cart-count aria-hidden="true">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="checkout-shell">
+    <div class="shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>Checkout</span>
+      </nav>
+
+      <div class="checkout-head">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Secure hosted checkout</p>
+        <h1>Almost yours.</h1>
+        <p class="lede">Add your delivery details, then pay by UPI on the UPI-PG checkout page. You will come straight back here with a receipt.</p>
+      </div>
+
+      <div class="checkout-grid" data-checkout-root>
+        <section class="panel" aria-labelledby="details-title">
+          <div class="panel-head">
+            <h2 id="details-title">Delivery details</h2>
+            <span class="step-pill">Step 1 of 2</span>
+          </div>
+
+          <form id="checkout-form" novalidate>
+            <div class="form-grid">
+              <div class="field full" data-field-wrap="name">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Ananya Rao" minlength="2" maxlength="80" required aria-describedby="error-name">
+                <p class="field-error" id="error-name" data-error-for="name"></p>
+              </div>
+
+              <div class="field" data-field-wrap="email">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="ananya@example.com" maxlength="254" required aria-describedby="error-email">
+                <p class="field-error" id="error-email" data-error-for="email"></p>
+              </div>
+
+              <div class="field" data-field-wrap="phone">
+                <label for="phone">Mobile number</label>
+                <div class="phone-field">
+                  <span aria-hidden="true">+91</span>
+                  <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="98765 43210" maxlength="10" required aria-describedby="error-phone">
+                </div>
+                <p class="field-error" id="error-phone" data-error-for="phone"></p>
+              </div>
+
+              <div class="field full" data-field-wrap="address">
+                <label for="address">Address</label>
+                <input id="address" name="address" type="text" autocomplete="street-address" placeholder="Flat, street, area" minlength="5" maxlength="200" required aria-describedby="error-address">
+                <p class="field-error" id="error-address" data-error-for="address"></p>
+              </div>
+
+              <div class="field" data-field-wrap="city">
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Bengaluru" minlength="2" maxlength="60" required aria-describedby="error-city">
+                <p class="field-error" id="error-city" data-error-for="city"></p>
+              </div>
+
+              <div class="field" data-field-wrap="pincode">
+                <label for="pincode">PIN code</label>
+                <input id="pincode" name="pincode" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="560038" maxlength="6" required aria-describedby="error-pincode">
+                <p class="field-error" id="error-pincode" data-error-for="pincode"></p>
+              </div>
+            </div>
+
+            <div class="pay-method">
+              <span class="pay-method-icon" aria-hidden="true">UPI</span>
+              <div>
+                <strong>UPI · Google Pay, PhonePe, Paytm and more</strong>
+                <p>You will verify your number on WhatsApp, then approve the payment in your UPI app.</p>
+              </div>
+              <span class="pay-check" aria-hidden="true">&#10003;</span>
+            </div>
+
+            <div class="form-error" data-form-error role="alert" hidden></div>
+
+            <button class="button button-primary button-lg button-block" type="submit" data-pay-button>Pay with UPI</button>
+
+            <p class="fineprint">By placing this order you agree to this being a demo purchase. The UPI-PG gateway is running locally; the bank credit is simulated and no real money moves.</p>
+          </form>
+        </section>
+
+        <aside class="panel summary-card" aria-labelledby="summary-title">
+          <div class="panel-head">
+            <h2 id="summary-title">Your order</h2>
+            <button class="link-button" type="button" data-cart-open>Edit bag</button>
+          </div>
+          <div data-summary></div>
+        </aside>
+      </div>
+
+      <section class="panel empty-state" data-checkout-empty hidden aria-labelledby="empty-title">
+        <h2 id="empty-title">Your bag is empty</h2>
+        <p>Add the Aura Mug to your bag before heading to checkout. It is a small batch — there are only a few at a time.</p>
+        <a class="button button-primary" href="/#the-mug">Meet the Aura Mug</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div>
+          <a class="brand brand-footer" href="/" aria-label="AURA home">
+            <span class="brand-mark" aria-hidden="true">A</span>
+            <span class="brand-word">AURA</span>
+          </a>
+          <p>Small-batch stoneware for slow mornings. A demo storefront built around a hosted UPI-PG checkout.</p>
+        </div>
+        <div>
+          <h2>Shop</h2>
+          <ul>
+            <li><a href="/#the-mug">The Aura Mug</a></li>
+            <li><a href="/checkout">Your bag</a></li>
+            <li><a href="/orders">Order history</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>About this demo</h2>
+          <ul>
+            <li><a href="https://github.com/devstroop/UPI-PG" target="_blank" rel="noopener noreferrer">UPI-PG on GitHub</a></li>
+            <li><a href="/api/health">Store health</a></li>
+            <li><a href="/return">Payment return page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> AURA — a demo project.</p>
+        <p>No real payments are processed. Payments are simulated by UPI-PG.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
